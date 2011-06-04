@@ -1,6 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
-	String url = request.getParameter("url");
+	String url = request.getParameter("u");
 %>
 <html>
     <head>

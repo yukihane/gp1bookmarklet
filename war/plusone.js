@@ -6,13 +6,33 @@
         return;
     }
 
-    var iframe_url = "http://plusonebookmarklet.appspot.com/plusone.jsp"
-            + "?url=" + encodeURIComponent(document.location.href);
-    var div = document.createElement("div");
-    div.id = "yukihane_plusone";
-    var str = "<style>#yukihane_plusone{position: fixed; top: 10px; right: 20px; width: 150px; height: 90px;z-index: 9999;background: #f4f4f4;padding: 10px;border: thin solid #999;}#ex small {font:Verdana, Geneva, sans-serif;font-size:9px;float:right;display:block}</style><div id='ex'><small><a href='#' onClick=\"document.getElementById('yukihane_plusone').style.display='none'; return false;\" title='Click to close this window'>Close</a></small><iframe frameborder='0' scrolling='no' src='"
-            + iframe_url
-            + "' width='120px' height='75px' style='backgroundColor: white;'></iframe></div>";
-    div.innerHTML = str;
-    document.body.insertBefore(div, document.body.firstChild);
-})()
+    // Bookmarklet で表示する要素
+    var plusone = document.createElement("div");
+    plusone.id = "yukihane_plusone";
+
+    // 閉じるリンク
+    var closeP1 = document.createElement("a");
+    closeP1.href = "javascript:void(0)";
+    closeP1
+            .setAttribute("onClick",
+                    "document.getElementById('yukihane_plusone').style.display = 'none';");
+    var closeText = document.createTextNode("close");
+    closeP1.appendChild(closeText);
+    var closeDiv = document.createElement("div");
+    closeDiv.id = "yukihane_plusone_close";
+    closeDiv.appendChild(closeP1);
+    plusone.appendChild(closeDiv);
+
+    // +1 ボタン
+    var iframe_url = "http://psonebookmarklet.appspot.com/plusone.jsp" + "?u="
+            + encodeURIComponent(document.location.href);
+    var ifr = document.createElement("iframe");
+    ifr.id = "yukihane_plusone_iframe";
+    ifr.src = iframe_url;
+    var iframeDiv = document.createElement("div");
+    iframeDiv.appendChild(ifr);
+    plusone.appendChild(iframeDiv);
+
+    // plusone.innerHTML = str;
+    document.body.insertBefore(plusone, document.body.firstChild);
+})();
