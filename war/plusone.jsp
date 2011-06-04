@@ -10,7 +10,6 @@
 
     <body>
     	<% if(url != null) { %>
-	        <style>body {padding:20px; background-color:#f4f4f4}</style>
 	        <g:plusone size="standard" count="true" href="<%= url %>"></g:plusone>
         <% } else { %>
         	invalid url
