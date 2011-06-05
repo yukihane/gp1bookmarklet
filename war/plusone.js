@@ -13,8 +13,8 @@
     plusone.style.zIndex = "999";
     plusone.style.top = "20px";
     plusone.style.right = "20px";
-    plusone.style.width = "80px";
-    plusone.style.height = "60px";
+    plusone.style.width = "140px";
+    plusone.style.height = "80px";
     plusone.style.padding = "10px";
     plusone.style.border = "dashed";
     plusone.style.borderWidth = "1px";
@@ -43,8 +43,8 @@
     var ifr = document.createElement("iframe");
     ifr.id = "yukihane_plusone_iframe";
     ifr.src = iframe_url;
-    ifr.width = "120px";
-    ifr.height = "50px";
+    ifr.width = "140px";
+    ifr.height = "60px";
     ifr.style.border = "none";
     ifr.style.marginTop = "20px";
     var iframeDiv = document.createElement("div");
